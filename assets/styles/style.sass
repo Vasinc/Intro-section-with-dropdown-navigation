@@ -1,0 +1,35 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap')
+
+// variables
+$almost-white: hsl(0, 0%, 98%)
+$medium-gray: hsl(0, 0%, 41%)
+$almost-black: hsl(0, 0%, 8%)
+
+// resets
+*, *::before, *::after
+    margin: 0
+    padding: 0
+    box-sizing: inherit
+
+// actual code
+
+.attribution
+    text-align: center
+    a
+        color: red
+        text-decoration: none
+        transition: color 100ms linear
+        &:hover
+            color: lighten(red, 30%)
+            text-decoration: underline
+
+body
+    box-sizing: border-box
+    font-family: 'Epilogue', sans-serif
+    font-size: 100%
+    overflow-x: hidden
+
+header
+    .register-buttons
+        display: none
