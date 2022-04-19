@@ -24,12 +24,195 @@ $almost-black: hsl(0, 0%, 8%)
             color: lighten(red, 30%)
             text-decoration: underline
 
+.display-block
+    display: block !important
+
 body
     box-sizing: border-box
     font-family: 'Epilogue', sans-serif
     font-size: 100%
     overflow-x: hidden
+    background: $almost-white
+
+.backdrop
+    display: none
+    position: absolute
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100%
+    background: rgba(0, 0, 0, .4)
+    z-index: 1000
 
 header
+    display: flex
+    justify-content: space-between
+    padding: 1rem
+    .main-list
+        display: none
+        position: absolute
+        top: 0
+        right: 0
+        padding: 2rem 8rem 2rem 2rem
+        height: 100vh
+        background: $almost-white
+        list-style: none
+        z-index: 1001
+        li
+            margin: 1.5rem 0
+            font-weight: 500
+        a
+            color: $medium-gray
+            text-decoration: none
+        .close-menu__btn
+            position: relative
+            left: calc( 100% + 4rem )
+            cursor: pointer
+        .secondary-list
+            display: none
+            list-style: none
+            margin: 1.5rem 0
+            transform: translateX(2rem)
+        .secondary-list__one
+            transform: translateX(3.5rem)
+            .todo
+                position: relative
+                &::before
+                    content: url('/images/icon-todo.svg');
+                    position: absolute
+                    transform: translateX(-1.5rem)
+            .calendar
+                @extend .todo
+                &::before
+                    content: url('/images/icon-calendar.svg');
+            .reminders
+                @extend .todo
+                &::before
+                    content: url('/images/icon-reminders.svg');
+            .planning
+                @extend .todo
+                &::before
+                    content: url('/images/icon-planning.svg');
     .register-buttons
         display: none
+    .open-menu__btn
+        cursor: pointer
+
+main
+    display: flex
+    flex-direction: column
+    .image-container
+        img
+            width: 100%
+    .text-container
+        display: flex
+        flex-direction: column
+        gap: 2rem
+        padding: 2rem
+        text-align: center
+        h1
+            font-size: 2.25rem
+        p
+            font-size: 18px
+            color: $medium-gray
+        button
+            position: relative
+            left: 50%
+            width: fit-content
+            padding: 1rem 1.5rem
+            font-size: 1.5rem
+            background: black
+            color: $almost-white
+            border-radius: 1.25rem
+            border: none
+            transform: translateX(-50%)
+        .client-images__container
+            display: flex
+            justify-content: space-evenly
+            flex-wrap: wrap
+            list-style: none
+
+@media screen and ( min-width: 800px )
+    body
+        header
+            display: flex
+            align-items: center
+            .main-list
+                display: flex
+                gap: 1rem
+                position: relative
+                margin-right: auto
+                margin-left: 2rem
+                height: initial
+                background: $almost-white
+                padding: 0
+                a
+                    transition: color 150ms linear
+                    &:hover
+                        color: $almost-black
+                .secondary-list
+                    position: absolute
+                    top: 3rem
+                    left: -8rem
+                    padding: 1rem 1rem 1rem 3rem
+                    background: white
+                    border-radius: .5rem
+                .secondary-list__two
+                    padding: 0 1rem
+                    left: 4rem
+            .open-menu__btn
+                display: none
+            .close-menu__btn
+                display: none
+            .register-buttons
+                display: flex
+                gap: 1.5rem
+                .login-btn
+                    padding: .5rem
+                    font-family: 'Epilogue', sans-serif
+                    border: none
+                    background: $almost-white
+                    color: $medium-gray
+                    font-weight: 500
+                    cursor: pointer
+                    transition: color 150ms linear
+                    &:hover
+                        color: $almost-black
+                .register-btn
+                    @extend .login-btn
+                    border: 1px solid $medium-gray
+                    border-radius: .5rem
+                    &:hover
+                        border-color: $almost-black
+        main
+            height: 100%
+            padding: 2rem
+            flex-direction: row-reverse
+            .text-container
+                text-align: left
+                padding-right: 4rem
+                width: 50%
+                h1
+                    font-size: 4rem
+                    max-width: 30ch
+                p
+                    font-size: 16px
+                    max-width: 45ch
+                    margin: 1rem 0
+                button
+                    left: 0
+                    transform: translateX(0)
+                    font-size: 1.25rem
+                    border: 1px solid black
+                    cursor: pointer
+                    transition: color 150ms linear, background 150ms linear
+                    &:hover
+                        background: $almost-white
+                        color: black
+            .image-container
+                width: 50%
+                img
+                    height: auto
+                    max-height: 400px
+                    
+                        

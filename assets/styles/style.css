@@ -22,15 +22,291 @@
   text-decoration: underline;
 }
 
+.display-block {
+  display: block !important;
+}
+
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'Epilogue', sans-serif;
   font-size: 100%;
   overflow-x: hidden;
+  background: #fafafa;
+}
+
+.backdrop {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+}
+
+header .main-list {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2rem 8rem 2rem 2rem;
+  height: 100vh;
+  background: #fafafa;
+  list-style: none;
+  z-index: 1001;
+}
+
+header .main-list li {
+  margin: 1.5rem 0;
+  font-weight: 500;
+}
+
+header .main-list a {
+  color: dimgray;
+  text-decoration: none;
+}
+
+header .main-list .close-menu__btn {
+  position: relative;
+  left: calc( 100% + 4rem);
+  cursor: pointer;
+}
+
+header .main-list .secondary-list {
+  display: none;
+  list-style: none;
+  margin: 1.5rem 0;
+  -webkit-transform: translateX(2rem);
+          transform: translateX(2rem);
+}
+
+header .main-list .secondary-list__one {
+  -webkit-transform: translateX(3.5rem);
+          transform: translateX(3.5rem);
+}
+
+header .main-list .secondary-list__one .todo, header .main-list .secondary-list__one .calendar, header .main-list .secondary-list__one .reminders, header .main-list .secondary-list__one .planning {
+  position: relative;
+}
+
+header .main-list .secondary-list__one .todo::before, header .main-list .secondary-list__one .calendar::before, header .main-list .secondary-list__one .reminders::before, header .main-list .secondary-list__one .planning::before {
+  content: url("/images/icon-todo.svg");
+  position: absolute;
+  -webkit-transform: translateX(-1.5rem);
+          transform: translateX(-1.5rem);
+}
+
+header .main-list .secondary-list__one .calendar::before {
+  content: url("/images/icon-calendar.svg");
+}
+
+header .main-list .secondary-list__one .reminders::before {
+  content: url("/images/icon-reminders.svg");
+}
+
+header .main-list .secondary-list__one .planning::before {
+  content: url("/images/icon-planning.svg");
 }
 
 header .register-buttons {
   display: none;
+}
+
+header .open-menu__btn {
+  cursor: pointer;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .image-container img {
+  width: 100%;
+}
+
+main .text-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+main .text-container h1 {
+  font-size: 2.25rem;
+}
+
+main .text-container p {
+  font-size: 18px;
+  color: dimgray;
+}
+
+main .text-container button {
+  position: relative;
+  left: 50%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  background: black;
+  color: #fafafa;
+  border-radius: 1.25rem;
+  border: none;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+main .text-container .client-images__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  list-style: none;
+}
+
+@media screen and (min-width: 800px) {
+  body header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body header .main-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    margin-right: auto;
+    margin-left: 2rem;
+    height: initial;
+    background: #fafafa;
+    padding: 0;
+  }
+  body header .main-list a {
+    -webkit-transition: color 150ms linear;
+    transition: color 150ms linear;
+  }
+  body header .main-list a:hover {
+    color: #141414;
+  }
+  body header .main-list .secondary-list {
+    position: absolute;
+    top: 3rem;
+    left: -8rem;
+    padding: 1rem 1rem 1rem 3rem;
+    background: white;
+    border-radius: .5rem;
+  }
+  body header .main-list .secondary-list__two {
+    padding: 0 1rem;
+    left: 4rem;
+  }
+  body header .open-menu__btn {
+    display: none;
+  }
+  body header .close-menu__btn {
+    display: none;
+  }
+  body header .register-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1.5rem;
+  }
+  body header .register-buttons .login-btn, body header .register-buttons .register-btn {
+    padding: .5rem;
+    font-family: 'Epilogue', sans-serif;
+    border: none;
+    background: #fafafa;
+    color: dimgray;
+    font-weight: 500;
+    cursor: pointer;
+    -webkit-transition: color 150ms linear;
+    transition: color 150ms linear;
+  }
+  body header .register-buttons .login-btn:hover, body header .register-buttons .register-btn:hover {
+    color: #141414;
+  }
+  body header .register-buttons .register-btn {
+    border: 1px solid dimgray;
+    border-radius: .5rem;
+  }
+  body header .register-buttons .register-btn:hover {
+    border-color: #141414;
+  }
+  body main {
+    height: 100%;
+    padding: 2rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  body main .text-container {
+    text-align: left;
+    padding-right: 4rem;
+    width: 50%;
+  }
+  body main .text-container h1 {
+    font-size: 4rem;
+    max-width: 30ch;
+  }
+  body main .text-container p {
+    font-size: 16px;
+    max-width: 45ch;
+    margin: 1rem 0;
+  }
+  body main .text-container button {
+    left: 0;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    font-size: 1.25rem;
+    border: 1px solid black;
+    cursor: pointer;
+    -webkit-transition: color 150ms linear, background 150ms linear;
+    transition: color 150ms linear, background 150ms linear;
+  }
+  body main .text-container button:hover {
+    background: #fafafa;
+    color: black;
+  }
+  body main .image-container {
+    width: 50%;
+  }
+  body main .image-container img {
+    height: auto;
+    max-height: 400px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
